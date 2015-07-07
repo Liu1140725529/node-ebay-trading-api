@@ -29,6 +29,7 @@
 
     var userToken = '';
 
+    var debug = false;
 
     exports.setUserToken = function(token){
         userToken = token;
@@ -39,6 +40,10 @@
         return userToken;
     };
 
+
+    exports.debug = function(bool){
+        debug = bool;
+    };
 
 
     exports.call = function(callName, jsonObj, callback){
@@ -51,13 +56,18 @@
         args.headers["X-EBAY-API-CALL-NAME"] = callName;
         args.data = buildXmlData(callName, jsonObj);
 
+        if( debug ){
+            console.log("Request detail ------------ :");
+            inspect(args);
+        }
+
         client.methods.xmlMethod(args, function(data,response){
             // parsed response body as js object
             //console.log(data);
             // raw response
             //console.log(response);
 
-            xml2js.parseString(data, function(err, result){
+            xml2js.parseString(data, {explicitArray:false}, function(err, result){
                 //inspect(result);
                 callback(result);
             });
