@@ -62,6 +62,7 @@
             return;
         }
 
+        args.headers["X-EBAY-API-SITEID"] = siteID;
         args.headers["X-EBAY-API-CALL-NAME"] = callName;
         args.data = buildXmlData(callName, jsonObj);
 
