@@ -17,14 +17,14 @@
     // registering remote methods
     client.registerMethod("xmlMethod", "https://api.ebay.com/ws/api.dll", "POST");
 
-    var args = {
-        headers : {
-            "X-EBAY-API-CALL-NAME" : "GetItem",
-            "X-EBAY-API-SITEID" : 0,
-            "X-EBAY-API-COMPATIBILITY-LEVEL" : 870,
-            "Content-Type" : "text/xml"
-        },
-        data : ''
+    var siteID = 0;
+
+    exports.setSiteID = function(id){
+        siteID = id;
+    };
+
+    exports.getSiteID = function(){
+        return siteID;
     };
 
     var userToken = '';
@@ -35,7 +35,6 @@
         userToken = token;
     };
 
-
     exports.getUserToken = function(){
         return userToken;
     };
@@ -43,6 +42,16 @@
 
     exports.debug = function(bool){
         debug = bool;
+    };
+
+    var args = {
+        headers : {
+            "X-EBAY-API-CALL-NAME" : "GetItem",
+            "X-EBAY-API-SITEID" : siteID,
+            "X-EBAY-API-COMPATIBILITY-LEVEL" : 870,
+            "Content-Type" : "text/xml"
+        },
+        data : ''
     };
 
 
