@@ -1,6 +1,6 @@
 {
   "name": "node-ebay-trading-api",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "npm module for eBay Trading API",
   "main": "index.js",
   "scripts": {
@@ -21,10 +21,9 @@
     "url": "https://github.com/demchig/node-ebay-trading-api/issues"
   },
   "homepage": "https://github.com/demchig/node-ebay-trading-api",
-  "devDependencies": {
-  },
-  "dependencies" : {
-    "node-rest-client" : "~1.4.1",
-    "xml2js" : "~0.4.4"
+  "devDependencies": {},
+  "dependencies": {
+    "node-rest-client": "~1.4.1",
+    "xml2js": "~0.4.4"
   }
 }
