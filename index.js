@@ -19,6 +19,15 @@
 
     var siteID = 0;
 
+    exports.toggleSandbox = function(on){
+        if(on){
+            client.registerMethod("xmlMethod", "https://api.sandbox.ebay.com/ws/api.dll", "POST");
+        }
+        else{
+            client.registerMethod("xmlMethod", "https://api.ebay.com/ws/api.dll", "POST");
+        }
+    }
+
     exports.setSiteID = function(id){
         siteID = id;
     };

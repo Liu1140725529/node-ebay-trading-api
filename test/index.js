@@ -12,7 +12,7 @@ ebayTradingAPI.setUserToken(config.eBayAuthToken);
 
 console.log(ebayTradingAPI.getUserToken());
 
-ebayTradingAPI.call(
+/*ebayTradingAPI.call(
 	"GetItem",
 	{
 		"ItemID" : 251636383648
@@ -21,3 +21,17 @@ ebayTradingAPI.call(
 		console.log(result);
 	}
 );
+
+*/ebayTradingAPI.debug(true);
+ebayTradingAPI.toggleSandbox(true);
+
+ebayTradingAPI.call(
+	"GetItem",
+	{
+		"ItemID" : 281943173365
+	},
+	function(result){
+		console.log(result);
+	}
+);
+
